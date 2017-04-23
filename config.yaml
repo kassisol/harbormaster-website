@@ -1,0 +1,14 @@
+---
+baseurl: 'http://harbormaster.io'
+
+contentdir: 'content'
+layoutdir: 'layouts'
+publishdir: 'public'
+builddrafts: false
+
+#relativeURLs: true
+#canonifyURLs: true
+
+theme: 'harbormaster'
+
+googleAnalytics: 'UA-89090720-1'

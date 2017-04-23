@@ -1,0 +1,180 @@
+{{ partial "header.html" . }}
+  <body>
+    <header>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="#"><img height="48px" src="/img/harbormaster-logo.svg" /></a>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div id="navbar-top" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/docs/getstarted/hbm/">Get Started</a></li>
+                <li><a href="/docs/">Docs</a></li>
+                <li><a target="_blank" href="https://github.com/harbormaster/hbm">GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    </header>
+
+    <section id="home">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center">Harbormaster</h1>
+
+            <h3 class="text-center">Harbormaster is a set of tools to secure Docker environment.</h3>
+          </div>
+        </div>
+        <div class="row gs">
+          <div class="col-md-2 col-md-offset-5">
+              <a class="btn btn-default btn-lg btn-block" href="/docs/getstarted/hbm/" role="button">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="terminal">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="terminal margin-t-100 code">
+              <div class="frame">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="content">
+                <div class="app-code">
+                  <span class="blue-text">></span>
+                  mkdir /etc/systemd/system/docker.service.d
+                  <br />
+                  <span class="blue-text">></span>
+                  vim /etc/systemd/system/docker.service.d/daemon.conf
+                  <br />
+                  <span class="blue-text">></span>
+                  cat /etc/systemd/system/docker.service.d/daemon.conf
+                  <br />
+                  [Service]<br />
+                  ExecStart=<br />
+                  ExecStart=/usr/bin/dockerd --authorization-plugin=hbm<br />
+                  <span class="blue-text">></span>
+                  systemctl daemon-reload
+                  <br />
+                  <span class="blue-text">></span>
+                  systemctl restart docker.service
+                  <br />
+                  <span class="blue-text">></span>
+                  curl https://github.com/harbourmaster/hbm
+                  <br />
+                  <span class="blue-text">></span>
+                  hbm init
+                  <br />
+                  <span class="blue-text">></span>
+                  hbm server
+                  <br />
+                  <span class="blue-text">INFO</span>
+                  [0000] Server has completed initialization
+                  <br />
+                  <span class="blue-text">INFO</span>
+                  [0000] HBM server&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <span class="blue-text">logdriver</span>=standard
+                  <span class="blue-text">storagedriver</span>=sqlite
+                  <span class="blue-text">version</span>=0.2.0
+                  <br />
+                  <span class="blue-text">INFO</span>
+                  [0000] Listening on socket file
+                  <br />
+                  <span class="cursor">▋</span>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Security</h3>
+
+            <p>
+            HBM extends the open source Docker Engine by adding authorization control.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>Audit</h3>
+
+            <p>
+            All the operations are tracked.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>Decoupled</h3>
+
+            <p>
+            Users don’t change their source code. Instead, admins write policies with an easy-to-use command.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h3>Easy to Deploy</h3>
+
+            <p>
+            HBM has zero deployment dependencies. It runs as a daemon side-by-side with Docker Daemon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <section  id="footerRights">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <p>&copy; 2016-2017 Kassisol</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+/*      jQuery(function($) {
+        $(document).scroll(function() {
+          if ($(window).scrollTop() > 448 ) {
+            $('.navbar').css('background-color', '#ffffff');
+            $('.navbar').css('border-bottom', '1px');
+          } else {
+            $('.navbar').css('background-color', '#255488');
+            $('.navbar').css('border-bottom', '0');
+          }
+        });
+        if ($(window).scrollTop() < 448 ) {
+          $('.navbar').css('background-color', '#255488');
+        }
+      }); */
+    </script>
+  </body>
+</html>
