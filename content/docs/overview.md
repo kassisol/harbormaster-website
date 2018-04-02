@@ -1,21 +1,21 @@
 ---
-title: "Welcome to the docs"
+title: "Harbormaster Documentation"
+linktitle: "Welcome to the docs"
 description: "Welcome to the docs"
-tags: [ "Harbormaster", "docs" ]
+keywords: [ "Harbormaster", "docs" ]
 date: "2017-02-14"
+url: "/docs/"
 menu:
-  main:
-    identifier: docs
-    weight: -105
+  docs:
+    weight: -705
+github_edit: "https://github.com/kassisol/harbormaster-website/edit/master/content/docs/overview.md"
 ---
-
-# Harbormaster Documentation
 
 Harbormaster is a set of tools to secure Docker environment.
 
 ## Components
 
-### HBM
+### HBM Authz plugin
 
 A Docker authorization plugin run as a host service.
 

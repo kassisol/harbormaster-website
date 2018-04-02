@@ -1,14 +1,22 @@
 ---
-baseurl: 'http://harbormaster.io'
+baseURL: 'http://harbormaster.io'
 
-contentdir: 'content'
-layoutdir: 'layouts'
-publishdir: 'public'
-builddrafts: false
+contentDir: 'content'
+layoutDir: 'layouts'
+publishDir: 'public'
+buildDrafts: false
 
 #relativeURLs: true
 #canonifyURLs: true
 
 theme: 'harbormaster'
 
+enableRobotsTXT: true
 googleAnalytics: 'UA-89090720-1'
+
+params:
+  description: "A set of tools to help secure Docker environment"
+  hbm_release: "0.9.5"
+  hbm_github_issues: "https://github.com/kassisol/hbm/issues/new"
+  year_start: 2016
+  year_end: 2018

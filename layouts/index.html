@@ -1,42 +1,17 @@
 {{ partial "header.html" . }}
   <body>
-    <header>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
 
-              <a class="navbar-brand" href="#"><img height="48px" src="/img/harbormaster-logo.svg" /></a>
-            </div>
-          </div>
-          <div class="col-md-9">
-            <div id="navbar-top" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="/docs/getstarted/hbm/">Get Started</a></li>
-                <li><a href="/docs/">Docs</a></li>
-                <li><a target="_blank" href="https://github.com/harbormaster/hbm">GitHub</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    </header>
+{{ partial "nav.html" . }}
 
     <section id="home">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-12">
             <h1 class="text-center">Harbormaster</h1>
 
-            <h3 class="text-center">Harbormaster is a set of tools to secure Docker environment.</h3>
+            <p class="text-center">
+	      {{ .Site.Params.description }}
+            </p>
           </div>
         </div>
         <div class="row gs">
@@ -47,62 +22,63 @@
       </div>
     </section>
 
-    <section id="terminal">
+    <section id="whatis">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="terminal margin-t-100 code">
-              <div class="frame">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="content">
-                <div class="app-code">
-                  <span class="blue-text">></span>
-                  mkdir /etc/systemd/system/docker.service.d
-                  <br />
-                  <span class="blue-text">></span>
-                  vim /etc/systemd/system/docker.service.d/daemon.conf
-                  <br />
-                  <span class="blue-text">></span>
-                  cat /etc/systemd/system/docker.service.d/daemon.conf
-                  <br />
-                  [Service]<br />
-                  ExecStart=<br />
-                  ExecStart=/usr/bin/dockerd --authorization-plugin=hbm<br />
-                  <span class="blue-text">></span>
-                  systemctl daemon-reload
-                  <br />
-                  <span class="blue-text">></span>
-                  systemctl restart docker.service
-                  <br />
-                  <span class="blue-text">></span>
-                  curl https://github.com/harbourmaster/hbm
-                  <br />
-                  <span class="blue-text">></span>
-                  hbm init
-                  <br />
-                  <span class="blue-text">></span>
-                  hbm server
-                  <br />
-                  <span class="blue-text">INFO</span>
-                  [0000] Server has completed initialization
-                  <br />
-                  <span class="blue-text">INFO</span>
-                  [0000] HBM server&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span class="blue-text">logdriver</span>=standard
-                  <span class="blue-text">storagedriver</span>=sqlite
-                  <span class="blue-text">version</span>=0.2.0
-                  <br />
-                  <span class="blue-text">INFO</span>
-                  [0000] Listening on socket file
-                  <br />
-                  <span class="cursor">▋</span>
-                  <br />
-                </div>
-              </div>
-            </div>
+	  <h1 class="text-center hbm-section-title">What is Harbormaster?</h1>
+	</div>
+        <div class="row">
+          <p>
+            By default, Docker commands are run over Unix socket, but this can be changed by using TCP with TLS enabled. The latter allow certificates to be used to connect to Docker remotely. Certificate's CN (Common Name) is used as username for RBAC to control who is allowed to do what.
+	  </p>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <img id="img-hbm-workflow" height="600px" src="/img/harbormaster-workflow.png" alt="Harbormaster workflow" />
+	    </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h3 class="text-center">HBM</h3>
+
+            <p class="text-center">
+            An application to authorize and manage whitelisted docker commands using Docker AuthZ plugin.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h3 class="text-center">TSA</h3>
+
+            <p class="text-center">
+            An application acting as a CA (Certification Authority) server to issue certificates for Docker Engines and users.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h3 class="text-center">TWIC</h3>
+
+            <p class="text-center">
+            A client application for HBM TSA to manage Docker certificates to connect to the Docker daemon using TLS.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+            <h3 class="text-center">GPL 3 license</h3>
+
+            <p class="text-center">
+            Harbormaster are open source softwares released under the GPL-3 license.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="video">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <script src="https://asciinema.org/a/173571.js" id="asciicast-173571" async data-rows="27" data-speed="4"></script>
           </div>
         </div>
       </div>
@@ -111,33 +87,51 @@
     <section id="features">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
-            <h3>Security</h3>
+	  <h1 class="text-center hbm-section-title">Features</h1>
+	</div>
+        <div class="row">
+          <div class="col-md-4">
+            <center><i class="fab fa-docker fa-5x"></i></center>
+            <h3 class="text-center">Docker Security</h3>
 
-            <p>
+            <p class="text-center">
+            Restrict Docker container access to host and network resources.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <center><i class="fas fa-shield-alt fa-5x"></i></center>
+            <h3 class="text-center">Runtime Protection</h3>
+
+            <p class="text-center">
             HBM extends the open source Docker Engine by adding authorization control.
             </p>
           </div>
-          <div class="col-md-6">
-            <h3>Audit</h3>
+          <div class="col-md-4">
+            <center><i class="fas fa-id-card fa-5x"></i></center>
+            <h3 class="text-center">User Access Control</h3>
 
-            <p>
-            All the operations are tracked.
+            <p class="text-center">
+            HBM extends the open source Docker Engine by adding authorization control.
             </p>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6">
-            <h3>Decoupled</h3>
 
-            <p>
-            Users don’t change their source code. Instead, admins write policies with an easy-to-use command.
+        <br /><br /><br />
+
+        <div class="row">
+          <div class="col-md-4 col-md-offset-2">
+            <center><i class="fas fa-tasks fa-5x"></i></center>
+            <h3 class="text-center">Audit</h3>
+
+            <p class="text-center">
+            All Docker commands are tracked.
             </p>
           </div>
-          <div class="col-md-6">
-            <h3>Easy to Deploy</h3>
+          <div class="col-md-4">
+            <center><i class="fas fa-sync fa-5x"></i></center>
+            <h3 class="text-center">Easy to Deploy</h3>
 
-            <p>
+            <p class="text-center">
             HBM has zero deployment dependencies. It runs as a daemon side-by-side with Docker Daemon.
             </p>
           </div>
@@ -145,36 +139,8 @@
       </div>
     </section>
 
-    <footer>
-      <section  id="footerRights">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <p>&copy; 2016-2017 Kassisol</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </footer>
+    <div id="home-top">
+      {{ partial "top-btn.html" . }}
+    </div>
 
-    <script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <script>
-/*      jQuery(function($) {
-        $(document).scroll(function() {
-          if ($(window).scrollTop() > 448 ) {
-            $('.navbar').css('background-color', '#ffffff');
-            $('.navbar').css('border-bottom', '1px');
-          } else {
-            $('.navbar').css('background-color', '#255488');
-            $('.navbar').css('border-bottom', '0');
-          }
-        });
-        if ($(window).scrollTop() < 448 ) {
-          $('.navbar').css('background-color', '#255488');
-        }
-      }); */
-    </script>
-  </body>
-</html>
+{{ partial "footer.html" . }}
