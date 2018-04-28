@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+cd $(dirname $0)/..
+
+rm -f .dapper .tmass
+rm -f tmux*
+
+rm -rf public
+rm -rf tmp

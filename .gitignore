@@ -1,0 +1,5 @@
+.dapper
+.tmass
+*.swp
+tmux*
+public

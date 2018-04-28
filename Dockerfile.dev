@@ -1,0 +1,21 @@
+FROM kassis/dev:go
+
+########## Dapper Configuration #####################
+ENV DAPPER_RUN_ARGS --name harbormaster-website_dev
+ENV DAPPER_SOURCE /go/src/github.com/kassisol/harbormaster-website
+ENV SHELL /bin/bash
+
+WORKDIR ${DAPPER_SOURCE}
+
+########## General Configuration #####################
+ARG DAPPER_HOST_ARCH=amd64
+ARG HOST_ARCH=${DAPPER_HOST_ARCH}
+ARG ARCH=${HOST_ARCH}
+
+# Set up environment and export all ARGS as ENV
+ENV ARCH=${ARCH} \
+	HOST_ARCH=${HOST_ARCH} \
+	DAPPER_HOST_ARCH=${DAPPER_HOST_ARCH}
+
+# Install Hugo
+RUN go get -v github.com/gohugoio/hugo

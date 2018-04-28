@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+cd $(dirname $0)/..
+
+if [ -d "tmp" ]; then
+	mkdir tmp
+fi
+
+git clone https://github.com/kassisol/hbm.git tmp/hbm
+git clone https://github.com/kassisol/tsa.git tmp/tsa
+git clone https://github.com/kassisol/twic.git tmp/twic
+
+git clone https://github.com/kassisol/hugo-theme-harbormaster.git tmp/hugo-theme-harbormaster

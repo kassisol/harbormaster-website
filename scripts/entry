@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+mkdir -p tmp
+
+if [ -e ./scripts/$1 ]; then
+	./scripts/"$@"
+else
+	"$@"
+fi
+
+EXIT=$?
+
+chown -R ${DAPPER_UID}:${DAPPER_GID} .
+
+exit ${EXIT}
